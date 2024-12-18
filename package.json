@@ -10,5 +10,6 @@
   },
   "devDependencies": {
     "vitepress": "latest"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
