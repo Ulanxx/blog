@@ -51,7 +51,7 @@ export default defineConfig({
                     { text: "Hook 完全指北", link: "/frontend/react/hook" },
                     { text: "React 18 指北", link: "/frontend/react/18" },
                     { text: "React 19 指北", link: "/frontend/react/19" },
-                  ]
+                  ],
                 },
                 {
                   text: "样式解决方案",
@@ -79,9 +79,9 @@ export default defineConfig({
                     {
                       text: "MiniSearch 原理",
                       link: "/frontend/other/miniSearch",
-                    }
-                  ]
-                }
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -156,7 +156,13 @@ export default defineConfig({
 
         // 增加实用配置
         outline: "deep", // 显示深层次的标题导航
-        lastUpdated: true, // 显示最后更新时间
+        lastUpdated: {
+          text: "最后更新时间",
+          formatOptions: {
+            dateStyle: "full",
+            timeStyle: "short",
+          },
+        },
 
         docFooter: {
           prev: "上一页",
@@ -176,7 +182,7 @@ export default defineConfig({
     search: {
       provider: "local",
       options: {
-         // 配置本地搜索选项
+        // 配置本地搜索选项
         miniSearch: {
           // 配置 miniSearch 选项
           options: {
@@ -201,6 +207,7 @@ export default defineConfig({
             },
           },
         },
+      },
     },
   },
 });
