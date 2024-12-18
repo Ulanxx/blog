@@ -46,7 +46,12 @@ export default defineConfig({
                 { text: "概述", link: "/frontend/" },
                 {
                   text: "React 开发",
-                  link: "/frontend/react/",
+                  items: [
+                    { text: "概述", link: "/frontend/react/" },
+                    { text: "Hook 完全指北", link: "/frontend/react/hook" },
+                    { text: "React 18 指北", link: "/frontend/react/18" },
+                    { text: "React 19 指北", link: "/frontend/react/19" },
+                  ]
                 },
                 {
                   text: "样式解决方案",
@@ -64,6 +69,19 @@ export default defineConfig({
                     },
                   ],
                 },
+                {
+                  text: "其他",
+                  items: [
+                    {
+                      text: "全文搜索实现",
+                      link: "/frontend/other/search",
+                    },
+                    {
+                      text: "MiniSearch 原理",
+                      link: "/frontend/other/miniSearch",
+                    }
+                  ]
+                }
               ],
             },
           ],
@@ -157,6 +175,32 @@ export default defineConfig({
     ],
     search: {
       provider: "local",
+      options: {
+         // 配置本地搜索选项
+        miniSearch: {
+          // 配置 miniSearch 选项
+          options: {
+            // 分词器配置，支持驼峰和下划线分词
+            tokenize: (text) => text.split(/[\s\-_]+|(?=[A-Z])/),
+            // 处理搜索词，将所有词转为小写
+            processTerm: (term) => term.toLowerCase(),
+          },
+          // 搜索选项配置
+          searchOptions: {
+            // 增加模糊搜索的容错率
+            fuzzy: 0.3,
+            // 启用前缀匹配
+            prefix: true,
+            // 配置不同字段的权重
+            boost: {
+              title: 5,
+              heading: 3,
+              text: 1,
+              tag: 2,
+              anchor: 4,
+            },
+          },
+        },
     },
   },
 });
