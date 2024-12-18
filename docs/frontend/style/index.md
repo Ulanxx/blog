@@ -6,7 +6,7 @@
 
 1. **CSS 框架**
 
-   - [Tailwind CSS](./style/tailwind/): 实用优先的 CSS 框架
+   - [Tailwind CSS](./tailwind/index.md) 实用优先的 CSS 框架
    - Windi CSS: 按需编译的原子化 CSS 框架
 
 2. **CSS-in-JS**
