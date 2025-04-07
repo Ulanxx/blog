@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { configureDiagramsPlugin } from "vitepress-plugin-diagrams";
 
 export default defineConfig({
   title: "Melon Incubator",
@@ -60,7 +61,10 @@ export default defineConfig({
                     {
                       text: "Tailwind CSS",
                       items: [
-                        { text: "快速上手", link: "/frontend/style/tailwind/" },
+                        {
+                          text: "快速上手",
+                          link: "/frontend/style/tailwind/",
+                        },
                         {
                           text: "生态关系",
                           link: "/frontend/style/tailwind/relations",
@@ -208,6 +212,14 @@ export default defineConfig({
           },
         },
       },
+    },
+  },
+  markdown: {
+    config: (md) => {
+      configureDiagramsPlugin(md, {
+        diagramsDir: "docs/public/diagrams", // 自定义 SVG 文件目录
+        publicPath: "/diagrams", // 自定义公共路径
+      });
     },
   },
 });
